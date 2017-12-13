@@ -5,11 +5,11 @@ class Form {
 	private $data;
 	public $surround = 'p';
 
-	public function __construct($data = array()){
+	public function __construct($data = array()) {
 		$this->data = $data;
 	}
 
-	public function surround($html){
+	public function surround($html) {
 		return "<{$this->surround}>{$html}</{$this->surround}>";
 	}
 
@@ -18,7 +18,7 @@ class Form {
 		return isset($this->data[$index]) ? $this->data[$index] : null;
 	}
 
-	public function input($name){
+	public function input($name) {
 		return $this->surround(
 			'<input type="text" name="' . $name . '" value="
 				' . $this->getValue($name) . '
@@ -26,7 +26,8 @@ class Form {
 		);
 	}
 
-	public function submit(){
+	public function submit() {
 		return $this->surround('<button type="submit">Envoyer</button>');
 	}
 }
+

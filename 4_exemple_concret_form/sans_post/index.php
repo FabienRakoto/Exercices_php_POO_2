@@ -24,3 +24,5 @@ echo $form->input('bidule');
 echo $form->input('machin');
 
 echo $form->submit();
+
+
