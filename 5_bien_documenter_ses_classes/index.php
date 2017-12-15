@@ -1,6 +1,6 @@
 <?php
 
-require 'form2.php';
+require 'form.php';
 
 $form = new Form($_POST);
 
