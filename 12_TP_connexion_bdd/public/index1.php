@@ -19,5 +19,6 @@ if ($p === 'home') {
 } elseif ($p === 'single') {
 	require '../pages/single.php';
 }
+
 $content = ob_get_clean();
 require '../pages/templates/default.php' ;
