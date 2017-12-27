@@ -21,7 +21,7 @@ $db = new App\Database ('TP_blog_grafikart');
 ob_start();
 if ($p === 'home') {
 	require '../pages/home.php';
-} elseif ($p === 'single') {
+} elseif ($p === 'article') {
 	require '../pages/single.php';
 }
 

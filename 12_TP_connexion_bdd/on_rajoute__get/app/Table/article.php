@@ -8,12 +8,13 @@ class Article {
 	public function __get($key) {
 		// la méthode c'est 'get' suivi de la clé, ici 'url', à laquelle on aura rajouté une majuscule devant
 		$method = 'get'. ucfirst($key) ;
-		return $this->$method();
+		$this->$key = $this->$method();
+		return $this->$key;
 	}
 
 	public function getUrl() {
 
-		return 'index.php?p=article&id=' . $this->id;
+		return 'index1.php?p=article&id=' . $this->id;
 	}
 
 	public function getExtrait () {
