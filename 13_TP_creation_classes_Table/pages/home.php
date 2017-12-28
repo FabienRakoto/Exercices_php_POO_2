@@ -9,7 +9,7 @@
 
 		<li>
 
-			<!-- <?php var_dump($post); ?> -->
+			<?php var_dump($post); ?>
 
 			<h2><a href="<?= $post->url ?>"><?= $post->titre; ?></a></h2>
 

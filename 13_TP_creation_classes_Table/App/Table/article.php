@@ -8,7 +8,12 @@ class Article {
 
 	public static function getLast() {
 		// attention query c'est une fonction maison
-		return App::getDb()->query('SELECT id, titre, contenu, categories.titre as categorie FROM articles LEFT JOIN categories ON category_id = categories.id', __CLASS__) ;
+		return App::getDb()->query("
+			SELECT articles.id, articles.titre, articles.contenu, categories.titre as categorie 
+			FROM articles 
+			LEFT JOIN categories 
+				ON category_id = categories.id
+		", __CLASS__) ;
 	}
 
 	// la fonction magique __get
