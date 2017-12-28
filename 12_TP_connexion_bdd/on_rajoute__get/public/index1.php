@@ -14,8 +14,6 @@ if(isset($_GET['p'])) {
 // Initialisation des objets
 $db = new App\Database ('TP_blog_grafikart');
 
-
-
 // plutôt que de require ma page, je voudrais l'exécuter et stocker le résultat dans la variable $content
 // C'est ce que fait la fonction ob_start();
 ob_start();
