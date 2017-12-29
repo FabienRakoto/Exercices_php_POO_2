@@ -28,7 +28,7 @@ class Table {
 	}
 
 	public static function find ($id) {
-		// attention query c'est une fonction maison
+		// idem que pour la fonction all(). attention query c'est une fonction maison
 		return App::getDb()->prepare("
 			SELECT *
 			FROM " . static::getTable() . "
@@ -38,7 +38,7 @@ class Table {
 
 	public static function query ($statement, $attributes = null, $one = false) {
 
-		if(attributes){
+		if($attributes){
 
 			return App::getDb()->prepare($statement, $attributes, get_called_class(), $one) ;
 
@@ -47,7 +47,6 @@ class Table {
 			return App::getDb()->query($statement, get_called_class(), $one) ;
 
 		}
-
 
 	}
 

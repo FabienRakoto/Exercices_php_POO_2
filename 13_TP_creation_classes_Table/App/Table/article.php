@@ -8,23 +8,23 @@ class Article extends Table {
 
 	public static function getLast() {
 		// attention query c'est une fonction maison
-		return App::getDb()->query("
+		return self::query("
 			SELECT articles.id, articles.titre, articles.contenu, categories.titre as categorie 
 			FROM articles 
 			LEFT JOIN categories 
 				ON category_id = categories.id
-		", __CLASS__) ;
+		") ;
 	}
 
 	public static function lastByCategory($category_id) {
 		// attention query c'est une fonction maison
-		return App::getDb()->prepare("
+		return self::query("
 			SELECT articles.id, articles.titre, articles.contenu, categories.titre as categorie 
 			FROM articles 
 			LEFT JOIN categories 
 				ON category_id = categories.id
 			WHERE category_id=?
-		", [catefory_id], __CLASS__) ;
+		", [$category_id]) ;
 	}
 
 	public function getUrl() {
