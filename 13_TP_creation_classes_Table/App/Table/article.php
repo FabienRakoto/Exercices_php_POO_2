@@ -4,7 +4,7 @@ namespace App\Table;
 
 use App\App;
 
-class Article {
+class Article extends Table {
 
 	public static function getLast() {
 		// attention query c'est une fonction maison
@@ -14,14 +14,6 @@ class Article {
 			LEFT JOIN categories 
 				ON category_id = categories.id
 		", __CLASS__) ;
-	}
-
-	// la fonction magique __get
-	public function __get($key) {
-		// la méthode c'est 'get' suivi de la clé, ici 'url', à laquelle on aura rajouté une majuscule devant
-		$method = 'get'. ucfirst($key) ;
-		$this->$key = $this->$method();
-		return $this->$key;
 	}
 
 	public function getUrl() {
