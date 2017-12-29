@@ -20,10 +20,34 @@ class Table {
 
 		} else {
 
-			die(static::$table);
+			// die(static::$table);
 
 			return static::$table ;
 		}
+
+	}
+
+	public static function find ($id) {
+		// attention query c'est une fonction maison
+		return App::getDb()->prepare("
+			SELECT *
+			FROM " . static::getTable() . "
+			WHERE id = ?"
+		, [$id], get_called_class(), true);
+	}
+
+	public static function query ($statement, $attributes = null, $one = false) {
+
+		if(attributes){
+
+			return App::getDb()->prepare($statement, $attributes, get_called_class(), $one) ;
+
+		} else {
+
+			return App::getDb()->query($statement, get_called_class(), $one) ;
+
+		}
+
 
 	}
 
@@ -32,7 +56,7 @@ class Table {
 		return App::getDb()->query("
 			SELECT *
 			FROM " . static::getTable() . "
-		", __CLASS__) ;
+		", get_called_class()) ;
 
 	}
 

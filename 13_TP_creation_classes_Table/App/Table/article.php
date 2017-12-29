@@ -16,6 +16,17 @@ class Article extends Table {
 		", __CLASS__) ;
 	}
 
+	public static function lastByCategory($category_id) {
+		// attention query c'est une fonction maison
+		return App::getDb()->prepare("
+			SELECT articles.id, articles.titre, articles.contenu, categories.titre as categorie 
+			FROM articles 
+			LEFT JOIN categories 
+				ON category_id = categories.id
+			WHERE category_id=?
+		", [catefory_id], __CLASS__) ;
+	}
+
 	public function getUrl() {
 
 		return 'index1.php?p=article&id=' . $this->id;

@@ -30,6 +30,8 @@
 
 	<div class="col-sm-4">
 
+		<h5>Catégories</h5>
+
 		<?php foreach(App\Table\Categorie::all() as $categorie): ?>
 
 		<ul>

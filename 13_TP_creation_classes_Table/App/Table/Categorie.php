@@ -10,7 +10,7 @@ class Categorie extends Table {
 
 	public function getUrl() {
 
-		return 'index1.php?p=categories&id=' . $this->id;
+		return 'index1.php?p=categorie&id=' . $this->id;
 	}
 
 }
