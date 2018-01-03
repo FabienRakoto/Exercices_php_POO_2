@@ -12,6 +12,7 @@ class App {
 
 	// variable qui permet de sauvegarder la connexion à la base de données
 	private static $database ;
+	private static $title = "Mon super site" ;
 
 	// getter
 	public static function getDb(){
@@ -30,6 +31,14 @@ class App {
 	public static function notFound() {
 		header("HTTP/1.0 404 Not Found") ;
 		header('Location:index1.php?p=404');
+	}
+
+	public static function getTitle() {
+		return self::$title;
+	}
+
+	public static function setTitle($title) {
+		self::$title = $title;
 	}
 
 }

@@ -11,6 +11,8 @@ if($post=== false) {
 	App::notFound();
 }
 
+App::setTitle($post->titre);
+
 $categorie = Categorie::find($post->category_id)
 
 // var_dump($post);

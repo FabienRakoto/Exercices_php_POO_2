@@ -8,30 +8,11 @@ class Table {
 
 	protected static $table ;
 
-	private static function getTable() {
-
-		if (static::$table === null) {
-
-			$class_name = explode ("\\", get_called_class());
-
-			static::$table = strtolower(end($class_name)) . 's' ;
-
-			// die(self::$table);
-
-		} else {
-
-			// die(static::$table);
-
-			return static::$table ;
-		}
-
-	}
-
 	public static function find ($id) {
 		// idem que pour la fonction all(). attention query c'est une fonction maison
 		return App::getDb()->prepare("
 			SELECT *
-			FROM " . static::getTable() . "
+			FROM " . static::$table . "
 			WHERE id = ?
 		", [$id], get_called_class(), true);
 	}
@@ -54,7 +35,7 @@ class Table {
 		// attention query c'est une fonction maison
 		return App::getDb()->query("
 			SELECT *
-			FROM " . static::getTable() . "
+			FROM " . static::$table . "
 		", get_called_class()) ;
 
 	}
