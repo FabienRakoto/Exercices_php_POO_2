@@ -27,4 +27,9 @@ class App {
 		
 	}
 
+	public static function notFound() {
+		header("HTTP/1.0 404 Not Found") ;
+		header('Location:index1.php?p=404');
+	}
+
 }

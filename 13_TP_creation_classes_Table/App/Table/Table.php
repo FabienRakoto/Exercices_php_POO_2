@@ -32,13 +32,13 @@ class Table {
 		return App::getDb()->prepare("
 			SELECT *
 			FROM " . static::getTable() . "
-			WHERE id = ?"
-		, [$id], get_called_class(), true);
+			WHERE id = ?
+		", [$id], get_called_class(), true);
 	}
 
 	public static function query ($statement, $attributes = null, $one = false) {
 
-		if($attributes){
+		if($attributes) {
 
 			return App::getDb()->prepare($statement, $attributes, get_called_class(), $one) ;
 
