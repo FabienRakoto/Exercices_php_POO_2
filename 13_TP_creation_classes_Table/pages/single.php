@@ -13,14 +13,15 @@ if($post=== false) {
 
 App::setTitle($post->titre);
 
-$categorie = Categorie::find($post->category_id)
+// Avant j'avais : $categorie = Categorie::find($post->category_id)
 
 // var_dump($post);
 ?>
 
 <h1><?= $post->titre; ?></h1>
 
-<p><em><?= $categorie->titre; ?></em></p>
+<!-- Avant j'avais : <p><em><?= $categorie->titre; ?></em></p> -->
+<p><em><?= $post->categorie; ?></em></p>
 
 <p><?= $post->contenu; ?></p>
 

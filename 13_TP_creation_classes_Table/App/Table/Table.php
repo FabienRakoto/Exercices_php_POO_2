@@ -10,12 +10,21 @@ class Table {
 
 	public static function find ($id) {
 		// idem que pour la fonction all(). attention query c'est une fonction maison
-		return App::getDb()->prepare("
+		return static::query("
 			SELECT *
 			FROM " . static::$table . "
 			WHERE id = ?
-		", [$id], get_called_class(), true);
+		", [$id], true);
 	}
+
+	// Avant j'avais : 
+	// public static function find ($id) {
+	// 	return App::getDb()->prepare("
+	// 		SELECT *
+	// 		FROM " . static::$table . "
+	// 		WHERE id = ?
+	// 	", [$id], get_called_class(), true);
+	// }
 
 	public static function query ($statement, $attributes = null, $one = false) {
 

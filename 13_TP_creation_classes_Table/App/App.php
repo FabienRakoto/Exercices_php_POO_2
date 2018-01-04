@@ -38,7 +38,7 @@ class App {
 	}
 
 	public static function setTitle($title) {
-		self::$title = $title;
+		self::$title = $title . ' | ' . self::$title;
 	}
 
 }
